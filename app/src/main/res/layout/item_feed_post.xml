@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:background="#ffffff"
+    android:layout_margin="2dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:padding="5dp"
+        android:background="#ffffff">
+
+
+
+
+            <ImageView
+                android:id="@+id/feed_organiser_image"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_person_24"
+                android:background="@drawable/custom_image_background"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:id="@+id/feed_org_name"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:text="Organiser Name"
+                android:textSize="25sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentStart="true"/>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5D0C1D"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Event Name"
+            android:id="@+id/feed_event_name"
+            android:textSize="20sp"
+            android:layout_marginLeft="15sp"
+            android:textStyle="bold"
+            android:textColor="#CBB26A"/>
+
+
+        <ImageView
+            android:id="@+id/feed_poster"
+            android:layout_marginTop="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/custom_image_background" />
+
+        <TextView
+            android:id="@+id/feed_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginRight="15sp"
+            android:textColor="#CBB26A"/>
+
+        <TextView
+            android:id="@+id/feed_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Link"
+            android:textSize="15sp"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginRight="15sp"
+            android:textColor="#CBB26A"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

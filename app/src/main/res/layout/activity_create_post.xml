@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreatePostActivity">
+
+    <TextView
+        android:id="@+id/event_name_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#CBB26A"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="Event Name"/>
+
+    <EditText
+        android:layout_below="@+id/event_name_textview"
+        android:id="@+id/event_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingStart="10dp"
+        android:background="@drawable/outline_edit_text"/>
+
+    <TextView
+        android:layout_below="@+id/event_name"
+        android:id="@+id/poster_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#CBB26A"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="Select a poster"/>
+
+    <ImageView
+        android:layout_below="@+id/poster_textview"
+        android:id="@+id/poster"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/ic_baseline_add_photo_alternate_24"
+        android:background="@drawable/outline_edit_text"
+        />
+
+    <TextView
+        android:layout_below="@+id/poster"
+        android:id="@+id/details_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#CBB26A"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="Details"/>
+
+    <EditText
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/details_textview"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:paddingStart="10dp"
+        android:background="@drawable/outline_edit_text"/>
+
+    <TextView
+        android:layout_below="@+id/details"
+        android:id="@+id/link_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#CBB26A"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="Link"/>
+
+    <EditText
+        android:layout_below="@+id/link_textview"
+        android:id="@+id/link"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingStart="10dp"
+        android:background="@drawable/outline_edit_text"/>
+
+    <TextView
+        android:layout_below="@+id/link"
+        android:id="@+id/category_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#CBB26A"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="Select a category"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@+id/category_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:hint="Select Category"
+        android:textColorHint="#CBB26A"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+        <AutoCompleteTextView
+            android:id="@+id/category"
+            android:textColor="#CBB26A"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Submit"
+        android:textSize="20sp"
+        android:textColor="#CBB26A"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/outline_edit_text"/>
+
+</RelativeLayout>

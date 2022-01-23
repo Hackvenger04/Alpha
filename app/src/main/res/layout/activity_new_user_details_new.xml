@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5D0C1D">
+    <TextView
+        android:layout_width="88dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="28dp"
+        android:text="Register"
+        android:textColor="#D8C690"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/Register"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/outer_circle"
+        android:layout_width="136dp"
+        android:layout_height="136dp"
+        android:layout_below="@+id/Register"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="107dp"
+        />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/newUserProfileImage"
+        android:layout_width="116dp"
+        android:layout_height="116dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Register"
+        android:src="@drawable/ic_baseline_person_24"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textStyle="bold"
+        android:layout_below="@+id/newUserProfileImage"
+        android:layout_marginLeft="40dp"
+        android:textColor="#D8C690"
+        android:textSize="16dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/Name"/>
+    <EditText
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/Name"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="13dp"
+        android:id="@+id/name"
+        android:textColor="#D8C690"
+        android:textColorHint="#9A825F"
+        android:background="@drawable/new_user_details_button2"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:text="About me"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textColor="#D8C690"
+        android:id="@+id/userStatus"/>
+    <EditText
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/userStatus"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="13dp"
+        android:id="@+id/status"
+        android:textColor="#D8C690"
+        android:textColorHint="#9A825F"
+        android:background="@drawable/new_user_details_button2"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/status"
+        android:text="User Type"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textColor="#D8C690"
+        android:id="@+id/userType"/>
+    <Spinner
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/userType"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/spinner"
+        android:background="@drawable/new_user_details_button2"/>
+
+    <Button
+        android:layout_width="226dp"
+        android:layout_height="49dp"
+        android:layout_below="@id/spinner"
+        android:background="@drawable/new_user_details_button"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="90dp"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:padding="11dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:id="@+id/submitDetails"/>
+
+
+
+
+
+
+
+
+</RelativeLayout>

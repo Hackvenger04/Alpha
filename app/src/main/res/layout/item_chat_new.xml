@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="5dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/chatProfileImage"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_baseline_person_24"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+
+        <TextView
+            android:id="@+id/chatName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="75dp"
+            android:text="Janhavi S"
+            android:textSize="15dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="316dp"
+            android:text="Tue"
+            android:textSize="15dp"
+            android:id="@+id/lastMessageTime"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/chatName"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:text="Hello, I'm here"-->
+<!--            android:layout_marginStart="75dp"-->
+<!--            android:textSize="12dp"-->
+<!--            android:id="@+id/messageHolder"/>-->
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chatName"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginEnd="10dp"
+            android:padding="3dp"
+            >
+
+
+            <TextView
+                android:id="@+id/lastMessageSender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/colon"
+                android:layout_toEndOf="@+id/lastMessageSender"
+                android:text=":"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/lastMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/colon"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
