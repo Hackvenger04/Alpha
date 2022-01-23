@@ -63,9 +63,10 @@ public class FeedActivity extends AppCompatActivity {
         intializeViews();
         initializeRecyclerViews();
 
-        getUserDetails(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid());
+//        getUserDetails(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid());
+//
 
-
+        curUser=AllChatsActivity.curUser;
 
         drawerLayout=findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open,R.string.close);
@@ -107,6 +108,7 @@ public class FeedActivity extends AppCompatActivity {
 
                     case R.id.navChat:
                         intent = new Intent(FeedActivity.this, AllChatsActivity.class);
+                        intent.putExtra("isFromFeed",true);
                         startActivity(intent);
                         break;
                     case R.id.navLogout:

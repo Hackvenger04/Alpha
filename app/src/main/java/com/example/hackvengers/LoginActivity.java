@@ -285,7 +285,7 @@ public class LoginActivity extends AppCompatActivity {
             //new
             getUserDetails();
 
-            Intent intent = new Intent(getApplicationContext(), FeedActivity.class);
+            Intent intent = new Intent(getApplicationContext(), AllChatsActivity.class);
             startActivity(intent);
             finish();
         }

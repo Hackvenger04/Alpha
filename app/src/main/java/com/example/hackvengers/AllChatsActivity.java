@@ -61,10 +61,12 @@ public class AllChatsActivity extends AppCompatActivity {
         context = this;
 
         String userkey= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-//        getUserDetails(userkey);
+        getUserDetails(userkey);
 
 
-        curUser=FeedActivity.curUser;
+        boolean isFromFeed=getIntent().getBooleanExtra("isFromFeed",false);
+
+//        curUser=FeedActivity.curUser;
 
 
         Date date = Calendar.getInstance().getTime();
@@ -79,7 +81,11 @@ public class AllChatsActivity extends AppCompatActivity {
 
 
 
-//        startActivity(new Intent(this,FeedActivity.class));
+        if(!isFromFeed){
+            startActivity(new Intent(this,FeedActivity.class));
+        }
+
+
 
 
 

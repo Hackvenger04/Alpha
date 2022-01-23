@@ -134,7 +134,7 @@ public class NewUserDetailsActivity extends AppCompatActivity implements Adapter
 
 
     private void userLoggedIn(UserObject userObject) {
-        Intent intent = new Intent(this, FeedActivity.class);
+        Intent intent = new Intent(this, AllChatsActivity.class);
         intent.putExtra("userObject", userObject);
         startActivity(intent);
         finish();
