@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -60,7 +61,10 @@ public class AllChatsActivity extends AppCompatActivity {
         context = this;
 
         String userkey= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-        getUserDetails(userkey);
+//        getUserDetails(userkey);
+
+
+        curUser=FeedActivity.curUser;
 
 
         Date date = Calendar.getInstance().getTime();
@@ -72,6 +76,11 @@ public class AllChatsActivity extends AppCompatActivity {
         initializeViews();
         initializeRecyclerViews();
         getChatList();
+
+
+
+//        startActivity(new Intent(this,FeedActivity.class));
+
 
 
     }
@@ -87,6 +96,10 @@ public class AllChatsActivity extends AppCompatActivity {
                     String userStatus = "";
                     String chatID = "";
 
+                    boolean isUser = false,isMentor=false,isOrganizer=false;
+
+                    String mentorKey="",organizerKey="";
+
                     if (snapshot.child("Name").getValue() != null) {
                         userName = Objects.requireNonNull(snapshot.child("Name").getValue()).toString();
                     }
@@ -99,9 +112,21 @@ public class AllChatsActivity extends AppCompatActivity {
                     if (snapshot.child("Status").getValue() != null) {
                         userStatus = Objects.requireNonNull(snapshot.child("Status").getValue()).toString();
                     }
+                    if (snapshot.child("isUser").getValue() != null) {
+                        isUser = true;
+                    }
+                    if (snapshot.child("isMentor").getValue() != null) {
+                        isMentor = true;
+                        mentorKey=snapshot.child("isMentor").getValue().toString();
+                    }
+                    if (snapshot.child("isOrganizer").getValue() != null) {
+                        isOrganizer = true;
+                        organizerKey=snapshot.child("isOrganizer").getValue().toString();
+                    }
 
 
-                    curUser = new UserObject(userKey, userName, userPhone, userStatus, userImage, chatID);
+                    curUser = new UserObject(userKey, userName, userPhone, userStatus, userImage, chatID,isUser,isOrganizer,isMentor,mentorKey,organizerKey);
+
 
                 }
             }

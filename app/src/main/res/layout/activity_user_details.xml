@@ -1,9 +1,380 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserDetailsActivity">
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="127dp"
+            android:layout_height="127dp"
+            android:layout_marginLeft="129dp"
+            android:src="@drawable/ic_baseline_person_24"
+            app:civ_border_width="2dp"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentTop="true"
+            app:civ_border_color="#FF000000"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_image"
+            android:orientation="horizontal"
+            android:id="@+id/nameContainer">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="100dp"
+                android:text="Victoria Robertson"
+                android:textSize="20dp"
+                android:layout_below="@id/profile_image"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:id="@+id/nameHolder"/>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/green_arrow"
+                android:layout_marginTop="22dp"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/arrowContainer"
+                android:visibility="gone"/>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/connectBtn"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="Connect"
+            android:textColor="#D8C690"
+            android:layout_below="@id/nameContainer"
+            android:layout_marginLeft="134dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/button_bg4"
+            android:backgroundTint="#5D0C1D"
+            android:visibility="gone"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/connectBtn"
+            android:id="@+id/connectCountHolder"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="273 Connections"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="15dp"
+                android:textSize="15dp"
+                android:id="@+id/connectionCount"/>
+            <LinearLayout
+                android:layout_width="81dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_bg4"
+                android:backgroundTint="#0FA958"
+                android:layout_marginLeft="12dp"
+                android:id="@+id/ratingLayout"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/star"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="4.1"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/ratingContainer"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/Interest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/connectCountHolder"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="47dp"
+            android:text="Interests"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Interest"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            android:id="@+id/containerForInterest">
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/outline_edit_text"
+                android:text="VolleyBall"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="34dp"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:padding="10dp"
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/outline_edit_text"
+                android:text="Cricket"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="34dp"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:padding="10dp"
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/interest_add"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="34dp"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:id="@+id/interestAddBtn"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/containerForInterest"
+            android:id="@+id/container1"
+            android:layout_marginTop="3dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/horizontalContainer"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About Me"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginLeft="34dp"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:id="@+id/aboutMe"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:layout_marginLeft="239dp"
+                    android:layout_marginTop="36dp"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:id="@+id/editBtn"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="334dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/horizontalContainer"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="31dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+velit esse cillum dolore eu fugiat nulla pariatur.
+ aute irure dolor in reprehenderit in voluptate velit   "
+                android:id="@+id/aboutMeText"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/containerforUsers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/container1"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                android:id="@+id/mentors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="26dp"
+                android:text="Mentors"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mentorRecyclerView"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mentors"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="22dp"
+                android:orientation="vertical">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/containerForMentors"
+            android:layout_below="@+id/container1"
+            android:layout_marginTop="3dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/horizontalContainer2"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Experience"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginLeft="31dp"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:id="@+id/Experience"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:layout_marginLeft="239dp"
+                    android:layout_marginTop="36dp"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:id="@+id/editBtn2"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="334dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/horizontalContainer2"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="31dp"
+                android:text="3 years"
+                android:id="@+id/experienceText"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="31dp"
+                android:layout_below="@id/experienceText"
+                android:text="Certficiates"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:id="@+id/certificates"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="350dp"
+                android:layout_below="@id/experienceText"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:text="Add"
+                android:id="@+id/addCertificate"
+                android:visibility="gone"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_below="@+id/certificates"
+                android:layout_marginTop="17dp"
+                android:layout_marginLeft="31dp"
+                android:orientation="horizontal"
+                android:id="@+id/certificateContainer">
+
+                <ImageView
+                    android:layout_width="189dp"
+                    android:layout_height="115dp"
+                    android:src="@drawable/chef"/>
+
+                <ImageView
+                    android:layout_width="189dp"
+                    android:layout_height="115dp"
+                    android:src="@drawable/cartman_cop"/>
+                <ImageView
+                    android:layout_width="189dp"
+                    android:layout_height="115dp"
+                    android:src="@drawable/chef"/>
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/certificateContainer"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="31dp"
+                android:text="Plans"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:id="@+id/plans"/>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plans"
+                android:scrollbars="none"
+                android:layout_marginTop="17dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/plansContainer">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/insert_plan"
+                        android:layout_marginStart="31dp"
+                        android:id="@+id/insertPlan"
+                        android:visibility="gone"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

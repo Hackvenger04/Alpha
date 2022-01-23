@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -97,6 +98,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
             holder.relativeLayout.setLayoutParams(layoutParams);
             holder.relativeLayout.setBackgroundResource(R.drawable.custom_background_message_info);
+            holder.messageText.setTextColor(Color.parseColor("#000000"));
 
         } else {
             holder.relativeLayout.setVisibility(View.VISIBLE);
@@ -183,6 +185,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
                 holder.relativeLayout.setLayoutParams(layoutParams);
                 holder.relativeLayout.setBackgroundResource(R.drawable.custom_background_message_receiver);
                 holder.taggedLayout.setBackgroundResource(R.drawable.custom_tagged_receiver);
+                holder.messageText.setTextColor(Color.parseColor("#111111"));
+                holder.messageSender.setTextColor(Color.parseColor("#222222"));
+                holder.messageTime.setTextColor(Color.parseColor("#222222"));
+                holder.taggedSender.setTextColor(Color.parseColor("#222222"));
+                holder.taggedText.setTextColor(Color.parseColor("#222222"));
             }
 
 

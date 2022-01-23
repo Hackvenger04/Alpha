@@ -72,6 +72,12 @@
         android:text="SUBMIT"
         android:id="@+id/submitDetails"/>
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:spinnerMode="dropdown"/>
 
 
 </LinearLayout>

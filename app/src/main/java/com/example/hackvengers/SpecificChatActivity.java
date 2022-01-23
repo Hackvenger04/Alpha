@@ -12,11 +12,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -49,7 +51,7 @@ import java.util.Objects;
 public class SpecificChatActivity extends AppCompatActivity implements MessageAdapter.OnItemDoubleClickListener{
 
     EditText mMessageText;
-    Button mSendMessage,
+    ImageButton mSendMessage,
             mAddMedia;
 
     public static RecyclerView.LayoutManager mMessageListLayoutManager;
@@ -313,7 +315,7 @@ public class SpecificChatActivity extends AppCompatActivity implements MessageAd
             senderId = Objects.requireNonNull(snapshot.child("Sender").getValue()).toString();
         }
         if (snapshot.child("Sender Name").getValue() != null) {
-            senderPhone = Objects.requireNonNull(snapshot.child("Sender Name").getValue()).toString();
+            senderName = Objects.requireNonNull(snapshot.child("Sender Name").getValue()).toString();
         }
         if (snapshot.child("text").getValue() != null) {
             text = Objects.requireNonNull(snapshot.child("text").getValue()).toString();
@@ -507,6 +509,7 @@ public class SpecificChatActivity extends AppCompatActivity implements MessageAd
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
+
             });
 
 
@@ -532,6 +535,8 @@ public class SpecificChatActivity extends AppCompatActivity implements MessageAd
                     String userImage = "";
                     String userStatus = "";
                     String chatID = "";
+                    boolean isUser=false,isMentor=false,isOrganizer=false;
+                    String mentorKey="",organizerKey="";
                     if (snapshot.child("Name").getValue() != null) {
                         userName = Objects.requireNonNull(snapshot.child("Name").getValue()).toString();
                     }
@@ -545,8 +550,20 @@ public class SpecificChatActivity extends AppCompatActivity implements MessageAd
                         userStatus = Objects.requireNonNull(snapshot.child("Status").getValue()).toString();
                     }
 
+                    if (snapshot.child("isUser").getValue() != null) {
+                        isUser = true;
+                    }
+                    if (snapshot.child("isMentor").getValue() != null) {
+                        isMentor = true;
+                        mentorKey=snapshot.child("isMentor").getValue().toString();
+                    }
+                    if (snapshot.child("isOrganizer").getValue() != null) {
+                        isOrganizer = true;
+                        organizerKey=snapshot.child("isOrganizer").getValue().toString();
+                    }
 
-                    userObject = new UserObject(userKey, userName, userPhone, userStatus, userImage, chatID);
+
+                    userObject = new UserObject(userKey, userName, userPhone, userStatus, userImage, chatID,isUser,isOrganizer,isMentor,mentorKey,organizerKey);
                 }
             }
 
@@ -712,6 +729,11 @@ public class SpecificChatActivity extends AppCompatActivity implements MessageAd
         MessageObject messageObject = messageList.get(position);
 
         mTaggedSender.setText(messageObject.getSenderName());
+
+        if(messageObject.getSenderName().equals(AllChatsActivity.curUser.getName())){
+            mTaggedSender.setText("You");
+        }
+
         String text = messageObject.getText();
         if (text.equals("")) {
             text = "photo";
@@ -725,5 +747,6 @@ public class SpecificChatActivity extends AppCompatActivity implements MessageAd
         }
         taggedLayout.setVisibility(View.VISIBLE);
         taggedPosition = position;
+
     }
 }

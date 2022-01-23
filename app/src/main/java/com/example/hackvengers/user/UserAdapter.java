@@ -27,23 +27,24 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     ArrayList<UserObject> mUserList;
 
-    boolean isSingleChatActivity,isGroupDetailsActivity;
+    boolean isSingleChatActivity,isGroupDetailsActivity,isCurrentUserProfileActivity;
 
     Context context;
 
 
-    public UserAdapter(ArrayList<UserObject> userList, Context context,boolean isSingleChatActivity,boolean isGroupDetailsActivity){
+    public UserAdapter(ArrayList<UserObject> userList, Context context,boolean isSingleChatActivity,boolean isGroupDetailsActivity,boolean isCurrentUserProfileActivity){
         mUserList=userList;
         this.context=context;
         this.isSingleChatActivity=isSingleChatActivity;
         this.isGroupDetailsActivity=isGroupDetailsActivity;
+        this.isCurrentUserProfileActivity=isCurrentUserProfileActivity;
     }
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user,null,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user_new,null,false);
 
         RecyclerView.LayoutParams layoutParams= new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(layoutParams);
@@ -57,8 +58,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         final UserObject user = mUserList.get(position);
         holder.mName.setText(user.getName());
-        holder.mPhoneNumber.setText(user.getPhoneNumber());
-        holder.mStatus.setText(user.getStatus());
+
 
         String curUserKey = AllChatsActivity.curUser.getUid();
         if (user.getUid().equals(curUserKey)) {
@@ -74,6 +74,20 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             intent.putExtra("URI", user.getProfileImageUri());
             context.startActivity(intent);
         });
+
+        if(isCurrentUserProfileActivity){
+            holder.isSelected.setVisibility(View.GONE);
+            holder.mGiveRating.setVisibility(View.VISIBLE);
+
+
+            holder.itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(context, UserDetailsActivity.class);
+                intent.putExtra("userKey", user.getUid());
+                context.startActivity(intent);
+            });
+
+            //TODO: Add click listener to this give rating
+        }
 
         if (isSingleChatActivity) {
             holder.isSelected.setVisibility(View.GONE);
@@ -115,8 +129,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView mName,
-                mPhoneNumber,
-                mStatus;
+                mGiveRating;
 
         ImageView mProfilePhoto;
 
@@ -126,8 +139,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             super(itemView);
 
             mName=itemView.findViewById(R.id.userName);
-            mPhoneNumber=itemView.findViewById(R.id.userPhone);
-            mStatus=itemView.findViewById(R.id.userStatus);
+            mGiveRating=itemView.findViewById(R.id.giveRating);
+
 
             mProfilePhoto=itemView.findViewById(R.id.profileImage);
 

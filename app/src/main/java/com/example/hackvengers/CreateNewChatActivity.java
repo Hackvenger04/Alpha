@@ -124,7 +124,10 @@ public class CreateNewChatActivity extends AppCompatActivity {
                     String userImage = "";
                     String userStatus = "";
 
+                    boolean isUser = false,isMentor=false,isOrganizer=false;
 
+
+                    String mentorKey="",organizerKey="";
 
 
                     if (snapshot.child("Name").getValue() != null) {
@@ -140,8 +143,20 @@ public class CreateNewChatActivity extends AppCompatActivity {
                         userStatus = Objects.requireNonNull(snapshot.child("Status").getValue()).toString();
                     }
 
+                    if (snapshot.child("isUser").getValue() != null) {
+                        isUser = true;
+                    }
+                    if (snapshot.child("isMentor").getValue() != null) {
+                        isMentor = true;
+                        mentorKey=snapshot.child("isMentor").getValue().toString();
+                    }
+                    if (snapshot.child("isOrganizer").getValue() != null) {
+                        isOrganizer = true;
+                        organizerKey=snapshot.child("isOrganizer").getValue().toString();
+                    }
 
-                    UserObject newUser = new UserObject(userKey, userName, userPhone, userStatus, userImage, finalChatId);
+
+                    UserObject newUser = new UserObject(userKey, userName, userPhone, userStatus, userImage, finalChatId,isUser,isOrganizer,isMentor,mentorKey,organizerKey);
                     userList.add(newUser);
                     mUserListAdapter.notifyItemInserted(userList.size() - 1);
                 }
@@ -206,7 +221,7 @@ public class CreateNewChatActivity extends AppCompatActivity {
         mUserList.setHasFixedSize(false);
         mUserList.setNestedScrollingEnabled(false);
 
-        mUserListAdapter = new UserAdapter(userList, this, isSingleChatActivity, false);
+        mUserListAdapter = new UserAdapter(userList, this, isSingleChatActivity, false,false);
         mUserList.setAdapter(mUserListAdapter);
 
         mUserListLayoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);

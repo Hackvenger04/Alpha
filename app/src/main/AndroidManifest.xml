@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.hackvengers">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -13,7 +16,57 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hackvengers">
-        <activity android:name=".GroupDetailsActivity"></activity>
+        <activity android:name=".RentalActivity" />
+        <activity android:name=".MapsActivity" />
+
+        <activity android:name=".splashActivity"
+            android:exported="true"
+            android:theme="@style/splashTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC3fPc5wrnuatcJEWRhSANyFCJ7KKUwU0s" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="rzp.device_token.share" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@style/RazorpayTheme"
+            tools:replace="android:theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <data
+                    android:host="rzp.io"
+                    android:scheme="io.rzp" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".paymentActivity"/>
+
+        <activity android:name=".FeedActivity" />
+        <activity android:name=".CreatePostActivity" />
+        <activity android:name=".GroupDetailsActivity" />
         <activity android:name=".CreateNewChatActivity" />
         <activity android:name=".UserDetailsActivity" />
         <activity
@@ -25,14 +78,17 @@
         <activity
             android:name=".LoadingActivity"
             android:theme="@style/AppTheme.Transparent.NoTitle" />
-        <activity android:name=".NewUserDetailsActivity" />
+        <activity
+            android:name=".NewUserDetailsActivity"
+            android:theme="@style/AppTheme.Transparent.NoAppBar" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme.Transparent.NoAppBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />

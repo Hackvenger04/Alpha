@@ -99,8 +99,12 @@ public class GroupDetailsActivity extends AppCompatActivity {
                         phone = "",
                         imageUri = "",
                         status = "",
-                        chatID = "",
-                        notificationKey = "";
+                        chatID = "";
+
+                boolean isUser=false,isMentor=false,isOrganizer=false;
+
+                String mentorKey="",organizerKey="";
+
                 if(snapshot.exists()) {
                     if (snapshot.child("Name").getValue() != null) {
                         name = Objects.requireNonNull(snapshot.child("Name").getValue()).toString();
@@ -115,8 +119,20 @@ public class GroupDetailsActivity extends AppCompatActivity {
                         status = Objects.requireNonNull(snapshot.child("Status").getValue()).toString();
                     }
 
+                    if (snapshot.child("isUser").getValue() != null) {
+                        isUser = true;
+                    }
+                    if (snapshot.child("isMentor").getValue() != null) {
+                        isMentor = true;
+                        mentorKey=snapshot.child("isMentor").getValue().toString();
+                    }
+                    if (snapshot.child("isOrganizer").getValue() != null) {
+                        isOrganizer = true;
+                        organizerKey=snapshot.child("isOrganizer").getValue().toString();
+                    }
 
-                    UserObject userObject = new UserObject(userKey, name, phone, status, imageUri, chatID);
+
+                    UserObject userObject = new UserObject(userKey, name, phone, status, imageUri, chatID,isUser,isOrganizer,isMentor,mentorKey,organizerKey);
                     userList.add(userObject);
                     mUserListAdapter.notifyItemInserted(userList.size() - 1);
                 }
@@ -139,7 +155,7 @@ public class GroupDetailsActivity extends AppCompatActivity {
         mUserList.setHasFixedSize(false);
         mUserList.setNestedScrollingEnabled(false);
 
-        mUserListAdapter = new UserAdapter(userList, this, false, true);
+        mUserListAdapter = new UserAdapter(userList, this, false, true,false);
         mUserList.setAdapter(mUserListAdapter);
 
         mUserListLayoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
